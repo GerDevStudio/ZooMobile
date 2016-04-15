@@ -38,6 +38,9 @@ public class SyncService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        // notifying user that service started
+        Toast.makeText(this,"SyncService launched",Toast.LENGTH_SHORT).show();
+
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_SYNC_ANIMALS_FROM_WEBSERVICE.equals(action)) {

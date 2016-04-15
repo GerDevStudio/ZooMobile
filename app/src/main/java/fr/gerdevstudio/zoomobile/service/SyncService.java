@@ -83,6 +83,7 @@ public class SyncService extends IntentService {
     }
 
     private class AnimalModelWebService {
+        private int id;
         private String name;
         private String espece;
         private String description;
@@ -95,6 +96,14 @@ public class SyncService extends IntentService {
         public AnimalModelWebService(String name, String espece) {
             this.name = name;
             this.espece = espece;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
         }
 
         public String getName() {

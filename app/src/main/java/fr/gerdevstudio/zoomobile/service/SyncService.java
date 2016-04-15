@@ -25,7 +25,7 @@ public class SyncService extends IntentService {
 
     private static final String EXTRA_SYNC_DELAY = "fr.gerdevstudio.zoomobile.extra.SYNCDELAY";
 
-    private final static String BASE_URL_FOR_WEBAPP = "http://10.0.0.2:8080/ZooBuild/";
+    private final static String BASE_URL_FOR_WEBAPP = "http://192.168.11.172:8080/ZooBuild/";
 
 
     // delay between 2 refresh in ms. default is 30sec.
@@ -62,6 +62,7 @@ public class SyncService extends IntentService {
     // main method to perform data synchronisation
     private void syncData() {
         // creating the request
+        Toast.makeText(this,"refreshing data",Toast.LENGTH_SHORT).show();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL_FOR_WEBAPP).build();
         ZooService service = retrofit.create(ZooService.class);
         Call<List<AnimalModelWebService>> call = service.listAnimals();
